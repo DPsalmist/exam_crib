@@ -1,0 +1,82 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords"
+        content="keywords here...">
+    <meta name="description"
+        content="description here...">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Exams Crib</title>
+    <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'plugins/images/favicon.png' %}">
+    <!-- Custom CSS -->
+   <link href="{% static 'css/style.min.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+
+<div class="container">
+	
+	<!-- NavBar Here -->
+	<div id="header">
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		  <a class="navbar-brand mr-15" href="/">Exams Crib</a>
+		  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button> -->
+
+		  <div class="collapse navbar-collapse" id="navbarCollapse">
+
+			<ul class="menu navbar-nav mr-auto">
+				<li class='selected nav-link'>
+					<a class="nav-link" href="">Contact</a>
+				</li>
+				<li class='selected nav-link'>
+					<a class="nav-link" href="#">About</a>
+				</li>
+			</ul>
+				   
+		  </div>
+		</nav>
+	</div>
+
+<!-- Logout Section -->
+<div class="mt-10" style="height:120px; border: green solid 0px;"> </div>
+<div class="row" style="border: red solid 0px;">
+   <div class="col-lg-4"></div>
+   <div class="col-lg-4">
+   <h1>Logged out successful!</h1>
+	<hr>
+	<p>You have been successfully logged out. You can <a href="{% url 'login' %}">log in back here</a>.</p>
+   </div>
+   <div class="col-lg-4"></div>
+</div>
+
+</div>
+
+
+	<script src="{% static 'plugins/bower_components/jquery/dist/jquery.min.js' %}"></script>
+	<!-- Bootstrap tether Core JavaScript -->
+	<script src="{% static 'bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+	<script>
+	    $(".preloader").fadeOut();
+	</script>
+</body>
+</html>

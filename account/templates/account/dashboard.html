@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<!-- breadcrumb -->
+<div class="page-breadcrumb bg-white mb-4">
+    <div class="row align-items-center">
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+            <h4 class="page-title">Dashboard</h4>
+        </div>
+        <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+            <div class="d-md-flex">
+                <ol class="breadcrumb ms-auto">
+                    <li><i class="far fa-comments" aria-hidden="true"></i> <a href="#" class="fw-normal">Notifications</a></li>
+                </ol>
+                <a href="#" target="_blank"
+                    class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">View inbox</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of Breadcrumb -->
+
+<!-- Row -->
+<div class="row">
+	 <!-- Column 1 -->
+    <div class="col-lg-4 col-xlg-3 col-md-12">
+        <div class="white-box">
+            <div class="user-bg"> <img width="100%" alt="user" src="{% static 'plugins/images/large/img1.jpg' %}">
+                <div class="overlay-box">
+                    <div class="user-content">
+                        <a href="{% url  'exams:user_exams' user %}"><img src="{{ user.profile.photo.url }}"
+                                class="thumb-lg img-circle" alt="img"></a>
+                        <h4 class="text-white mt-2">{{ user.username }}</h4>
+                        <h5 class="text-white mt-2">{{ user.email }}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="user-btm-box mt-5 d-md-flex">
+                <div class="col-md-12 col-sm-4 text-center">
+                    <p>
+                        {% if user.account_type == 'student' %}
+                        <b>Student Matric: </b><span>{{user.profile.matric_no}}</span>
+                        {% else %}
+                        <b>Staff ID: </b><span>{{user.profile.staff_id}}</span>
+                        {% endif %}
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End Column 1 -->
+     <!-- Column 2 -->
+                    <div class="col-lg-8 col-xlg-9 col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <form class="form-horizontal form-material">
+                                    <div class="form-group mb-4">
+                                        <label class="col-md-12 p-0">Full Name</label>
+                                        <div class="col-md-12 border-bottom p-0">
+                                            <input type="text-muted" value="{{ user.first_name }} {{ user.last_name}} "
+                                                class="form-control p-0 border-0"> </div>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label for="example-email" class="col-md-12 p-0">Email</label>
+                                        <div class="col-md-12 border-bottom p-0">
+                                            <input type="text" value="{{ user.email }}"
+                                                class="form-control p-0 border-0" name="example-email"
+                                                id="example-email">
+                                        </div>
+                                    </div>
+                                    {% if user.account_type == 'student' %}
+                                    <div class="form-group mb-4">
+                                        <label class="col-md-12 p-0">Level</label>
+                                        <div class="col-md-12 border-bottom p-0">
+                                            <input type="text-muted" value="{{user.profile.level}}" class="form-control p-0 border-0">
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    <div class="form-group mb-4">
+                                        <label class="col-md-12 p-0">Phone No</label>
+                                        <div class="col-md-12 border-bottom p-0">
+                                            <input type="number" value="{{ user.profile.phone_no }}"
+                                                class="form-control p-0 border-0">
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label class="col-sm-12">Gender</label>
+
+										<div class="col-md-12 border-bottom p-0">
+                                            <input type="text-muted" rows="5" value="{{user.profile.gender}}" class="form-control p-0 border-0">
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label class="col-md-12 p-0">Bio</label>
+                                        <div class="col-md-12 border-bottom p-0">
+                                            <input type="text-muted" rows="5" value="{{user.profile.bio}}" class="form-control p-0 border-0">
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label class="col-sm-12">Nationality</label>
+
+										<div class="col-md-12 border-bottom p-0">
+                                            <input type="text-muted" rows="5" value="{{user.profile.nationality}}" class="form-control p-0 border-0">
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Column 2 -->
+</div>
+<!-- End Row -->
+{% endblock content %}
