@@ -12,8 +12,9 @@ https://examcrib.herokuapp.com
 
 To run on your machine, follow the steps below 👇
 
+- Make sure you have Python installed on your machine
 - Create a virtual environment on your machine
 - Download or git clone source code
 - Pip install requirements.txt
 - Run local server on port 8000 by running python manage.py runserver
-- Visit the address seen on your terminal/command prompt
+- Visit the address (http://127.0.0.1:8000) seen on your terminal/command prompt
